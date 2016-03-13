@@ -1,5 +1,5 @@
 # What is it?
-A self containing Java application that exposes a REST API to update DNS records at [InterNetworX](https://www.inwx.de).
+A self contained Java application to expose a REST API to update DNS records at [InterNetworX](https://www.inwx.de).
 
 # How do I run it?
  1. Run ```java -jar target\dnswxer-swarm.jar``` to expose the REST API.
