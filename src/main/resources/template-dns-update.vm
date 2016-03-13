@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall>
+   <methodName>nameserver.updateRecord</methodName>
+   <params>
+      <param>
+         <value>
+            <struct>
+               <member>
+                  <name>user</name>
+                  <value>
+                     <string>$username</string>
+                  </value>
+               </member>
+               <member>
+                  <name>pass</name>
+                  <value>
+                     <string>$password</string>
+                  </value>
+               </member>
+               <member>
+                  <name>lang</name>
+                  <value>
+                     <string>en</string>
+                  </value>
+               </member>
+               <member>
+                  <name>id</name>
+                  <value>
+                    <array>
+                      <data>
+#foreach( $id in $ids )
+                         <value><int>$id</int></value>
+#end
+                      </data>
+                   </array>
+                  </value>
+               </member>
+               <member>
+                  <name>content</name>
+                  <value>
+                     <string>$ip</string>
+                  </value>
+               </member>
+               <member>
+                  <name>ttl</name>
+                  <value>
+                     <int>$ttl</int>
+                  </value>
+               </member>
+            </struct>
+         </value>
+      </param>
+   </params>
+</methodCall>

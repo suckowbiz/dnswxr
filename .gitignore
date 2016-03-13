@@ -1,0 +1,8 @@
+/target/
+.classpath
+.project
+.settings
+test-output
+velocity.log
+.idea
+*.iml
