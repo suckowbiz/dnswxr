@@ -1,7 +1,7 @@
 # What is it?
 A self contained Java application to expose a REST API to update DNS records at [InterNetworX](https://www.inwx.de).  
 
-The intention to develop this tool was to update my Homeserver's IP when my FritzBox (re)connects to the internet.
+The intention to develope this tool was to update my Homeserver's IP when my FritzBox (re)connects to the internet.
 
 # How do I run it?
 With docker (see [https://hub.docker.com/r/suckowbiz/dnswxr/](https://hub.docker.com/r/suckowbiz/dnswxr/)) or:
