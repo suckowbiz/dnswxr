@@ -25,12 +25,14 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import java.util.Properties;
 
 /**
  * @author Tobias Suckow <tobias@suckow.biz>
  */
+@ApplicationScoped
 public class TemplateFactory {
     private static final String TEMPLATE_NAME = "template-dns-update.vm";
 

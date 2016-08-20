@@ -1,4 +1,4 @@
-package biz.suckow.dnswxr.business;
+package biz.suckow.dnswxr.business.ssl.control;
 
 /*
  * #%L
@@ -20,21 +20,16 @@ package biz.suckow.dnswxr.business;
  * #L%
  */
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
-import java.util.logging.Logger;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
 
 /**
- * Factory to produce named logger for given context.
- *
- * @author Tobias Suckow <tobias@suckow.biz>
+ * Created by tobias on 8/20/16.
  */
-@ApplicationScoped
-public class LoggerFactory {
+public class MerkelHostnameVerifier implements HostnameVerifier {
 
-    @Produces
-    public Logger expose(final InjectionPoint injectionPoint) {
-        return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
+    @Override
+    public boolean verify(String hostname, SSLSession session) {
+        return true;
     }
 }

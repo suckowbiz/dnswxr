@@ -5,7 +5,7 @@
 
     <groupId>biz.suckow</groupId>
     <artifactId>dnswxr</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
 
     <packaging>war</packaging>
 
@@ -69,7 +69,7 @@
         <version.testng>6.9.10</version.testng>
         <version.versions-maven-plugin>2.2</version.versions-maven-plugin>
         <version.velocity>1.7</version.velocity>
-        <version.wildfly-swarm-plugin>1.0.0.Beta2</version.wildfly-swarm-plugin>
+	    <version.wildfly.swarm>2016.8.1</version.wildfly.swarm>
     </properties>
 
     <build>
@@ -124,7 +124,7 @@
                 <plugin>
                     <groupId>org.wildfly.swarm</groupId>
                     <artifactId>wildfly-swarm-plugin</artifactId>
-                    <version>1.0.0.Beta2</version>
+                    <version>${version.wildfly.swarm}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -167,6 +167,7 @@
             <plugin>
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
+                <version>${version.wildfly.swarm}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -205,6 +206,19 @@
         </repository>
     </repositories>
 
+    <dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.wildfly.swarm</groupId>
+			<artifactId>bom-all</artifactId>
+			<version>${version.wildfly.swarm}</version>
+			<scope>import</scope>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+    </dependencyManagement>
+
+
     <dependencies>
         <!-- This is a java ee 7 project. -->
         <dependency>
@@ -213,11 +227,19 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Wildfly Swarm Fractions -->
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>jaxrs-cdi</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- Added to build a fat .jar -->
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>wildfly-swarm-plugin</artifactId>
-            <version>${version.wildfly-swarm-plugin}</version>
+            <version>${version.wildfly.swarm}</version>
         </dependency>
         <!-- Support mocking. -->
         <dependency>
@@ -243,7 +265,7 @@
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-common</artifactId>
-            <version>2.22.2</version>
+            <version>2.23.2</version>
             <scope>test</scope>
         </dependency>
         <!-- XML RPC Communication requires a payload which is produced using temple compiling. -->
@@ -252,12 +274,5 @@
             <artifactId>velocity</artifactId>
             <version>${version.velocity}</version>
         </dependency>
-        <!-- Added to provide JAXRS with CDI. -->
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-weld</artifactId>
-            <version>1.0.0.Beta2</version>
-        </dependency>
-
     </dependencies>
 </project>
