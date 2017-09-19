@@ -49,27 +49,29 @@
     </licenses>
 
     <prerequisites>
-        <maven>3.3.9</maven>
+        <maven>3.5.0</maven>
     </prerequisites>
 
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <version.easymock>3.4</version.easymock>
-        <version.license-maven-plugin>1.8</version.license-maven-plugin>
+        <version.easymock>3.5</version.easymock>
+        <version.glassfish>2.26</version.glassfish>
+        <version.license-maven-plugin>1.14</version.license-maven-plugin>
         <version.maven-clean-plugin>3.0.0</version.maven-clean-plugin>
-        <version.maven-compiler-plugin>3.3</version.maven-compiler-plugin>
+        <version.maven-compiler-plugin>3.7.0</version.maven-compiler-plugin>
         <version.maven-dependency-plugin>2.10</version.maven-dependency-plugin>
-        <version.maven-failsafe-plugin>2.19</version.maven-failsafe-plugin>
+        <version.maven-deploy-plugin>2.8.2</version.maven-deploy-plugin>
+        <version.maven-failsafe-plugin>2.20.1</version.maven-failsafe-plugin>
         <version.maven-install-plugin>2.5.2</version.maven-install-plugin>
-        <version.maven-resources-plugin>2.7</version.maven-resources-plugin>
-        <version.maven-site-plugin>3.4</version.maven-site-plugin>
-        <version.maven-surefire-plugin>2.19</version.maven-surefire-plugin>
-        <version.maven-war-plugin>2.6</version.maven-war-plugin>
-        <version.testng>6.9.10</version.testng>
+        <version.maven-resources-plugin>3.0.2</version.maven-resources-plugin>
+        <version.maven-site-plugin>3.6</version.maven-site-plugin>
+        <version.maven-surefire-plugin>2.20.1</version.maven-surefire-plugin>
+        <version.maven-war-plugin>3.1.0</version.maven-war-plugin>
+        <version.testng>6.11</version.testng>
         <version.versions-maven-plugin>2.2</version.versions-maven-plugin>
         <version.velocity>1.7</version.velocity>
-	    <version.wildfly.swarm>2016.8.1</version.wildfly.swarm>
+	    <version.wildfly.swarm>2017.9.5</version.wildfly.swarm>
     </properties>
 
     <build>
@@ -84,6 +86,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${version.maven-deploy-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -175,6 +178,12 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <properties>
+                        <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+                        <java.net.preferIPv4Addresses>true</java.net.preferIPv4Addresses>
+                    </properties>
+                </configuration>
             </plugin>
             <!-- Added to support integration tests during $ mvn verify -->
             <plugin>
@@ -265,7 +274,7 @@
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-common</artifactId>
-            <version>2.23.2</version>
+            <version>${version.glassfish}</version>
             <scope>test</scope>
         </dependency>
         <!-- XML RPC Communication requires a payload which is produced using temple compiling. -->

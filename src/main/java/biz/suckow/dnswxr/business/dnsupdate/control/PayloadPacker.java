@@ -24,7 +24,6 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.context.Context;
 
-import javax.ejb.Singleton;
 import javax.inject.Inject;
 import java.io.StringWriter;
 import java.util.Set;
@@ -32,7 +31,6 @@ import java.util.Set;
 /**
  * @author Tobias Suckow <tobias@suckow.biz>
  */
-@Singleton
 public class PayloadPacker {
     private final Template template;
 
